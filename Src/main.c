@@ -110,7 +110,7 @@ int main(void)
   // HAL_Delay(1000);
 
   ssd1306_SetCursor(0,0);
-  ssd1306_WriteString("helloworld",Font_7x10,Black);
+  // ssd1306_WriteString("helloworld",Font_7x10,Black);
 
   ssd1306_UpdateScreen();
 
@@ -124,13 +124,24 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-  for (int i=0;i<23;i++){
-    ssd1306_SetCursor(0,i);
+    for (int j=0;j<SSD1306_HEIGHT-10;j++){
+      for(int i=0;i<SSD1306_WIDTH-(7*10);i++){
 
-    ssd1306_Fill(Black);
-    ssd1306_WriteString("helloworld",Font_7x10,White);
+      ssd1306_SetCursor(i,j);
 
-    ssd1306_UpdateScreen();
+      ssd1306_Fill(Black);
+      ssd1306_WriteString("helloworld",Font_7x10,White);
+
+      // ssd1306_DrawPixel(i,j,White);
+      // // HAL_Delay(10);
+      // ssd1306_UpdateScreen();
+
+      // // ssd1306_DrawPixel(j,i,Black);
+      // // HAL_Delay(10);
+
+      ssd1306_UpdateScreen();
+    }
+
 
   }
 
